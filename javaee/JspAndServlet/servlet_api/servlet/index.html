@@ -1,0 +1,1440 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.1">
+    
+    
+      
+        <title>Servlet - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c0b802b2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#servlet" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Servlet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      简介
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../base/" class="md-tabs__link md-tabs__link--active">
+        Java EE
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../front/jsdom/jsdom/" class="md-tabs__link">
+        前端
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../ide/eclipse/" class="md-tabs__link">
+        工具
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java EE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java EE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java EE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          JSP & Servlet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JSP & Servlet" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          JSP & Servlet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/" class="md-nav__link">
+        java ee 基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_2" type="checkbox" id="__nav_2_1_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2">
+          Servlet 规范
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Servlet 规范" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Servlet 规范
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Servlet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Servlet
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    Web 应用的部署文件结构规范
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servlet-api" class="md-nav__link">
+    Servlet  API
+  </a>
+  
+    <nav class="md-nav" aria-label="Servlet  API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servlet-api_1" class="md-nav__link">
+    Servlet API架构图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servlet_1" class="md-nav__link">
+    Servlet 生命周期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletconfig" class="md-nav__link">
+    ServletConfig
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servlet_2" class="md-nav__link">
+    声明 Servlet
+  </a>
+  
+    <nav class="md-nav" aria-label="声明 Servlet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webservlet" class="md-nav__link">
+    @WebServlet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webxml" class="md-nav__link">
+    Web.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genericservlet" class="md-nav__link">
+    GenericServlet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpservlet" class="md-nav__link">
+    HttpServlet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletcontext" class="md-nav__link">
+    ServletContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pushbuilder" class="md-nav__link">
+    PushBuilder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletrequest" class="md-nav__link">
+    ServletRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="ServletRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpservletrequest" class="md-nav__link">
+    HttpServletRequest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletresponse" class="md-nav__link">
+    ServletResponse
+  </a>
+  
+    <nav class="md-nav" aria-label="ServletResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpservletresponse" class="md-nav__link">
+    HttpServletResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part" class="md-nav__link">
+    Part
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../session_management/" class="md-nav__link">
+        会话管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../listener/" class="md-nav__link">
+        应用程序事件和监听器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Filter/" class="md-nav__link">
+        过滤器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AsyncServlet/" class="md-nav__link">
+        异步 Servlet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jsp/" class="md-nav__link">
+        JSP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jstl/" class="md-nav__link">
+        JSTL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tag/" class="md-nav__link">
+        自定义标签
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Web 容器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web 容器" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Web 容器
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web_container/tomcat/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web_container_security.md" class="md-nav__link">
+        Web 容器安全管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/spring/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          前端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="前端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          前端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/jsdom/jsdom/" class="md-nav__link">
+        JS DOM 编程艺术
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/css/css/" class="md-nav__link">
+        精通 CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/javascript/javascript/" class="md-nav__link">
+        javascript 高级编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/node/node/" class="md-nav__link">
+        node 与 Express 开发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/bootstrap/bootstrap/" class="md-nav__link">
+        bootstrap 实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/react/react/" class="md-nav__link">
+        React 全家桶：前端开发与实例详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/es/es/" class="md-nav__link">
+        ES6-ES11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/webpack/webpack/" class="md-nav__link">
+        Webpack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/typescript/typescript/" class="md-nav__link">
+        typescript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ide/eclipse/" class="md-nav__link">
+        Eclipse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ide/intellij_idea/" class="md-nav__link">
+        Intellij IDEA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ide/vs_code/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    Web 应用的部署文件结构规范
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servlet-api" class="md-nav__link">
+    Servlet  API
+  </a>
+  
+    <nav class="md-nav" aria-label="Servlet  API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servlet-api_1" class="md-nav__link">
+    Servlet API架构图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servlet_1" class="md-nav__link">
+    Servlet 生命周期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletconfig" class="md-nav__link">
+    ServletConfig
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servlet_2" class="md-nav__link">
+    声明 Servlet
+  </a>
+  
+    <nav class="md-nav" aria-label="声明 Servlet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webservlet" class="md-nav__link">
+    @WebServlet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webxml" class="md-nav__link">
+    Web.xml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    属性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genericservlet" class="md-nav__link">
+    GenericServlet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpservlet" class="md-nav__link">
+    HttpServlet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletcontext" class="md-nav__link">
+    ServletContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pushbuilder" class="md-nav__link">
+    PushBuilder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletrequest" class="md-nav__link">
+    ServletRequest
+  </a>
+  
+    <nav class="md-nav" aria-label="ServletRequest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpservletrequest" class="md-nav__link">
+    HttpServletRequest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servletresponse" class="md-nav__link">
+    ServletResponse
+  </a>
+  
+    <nav class="md-nav" aria-label="ServletResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpservletresponse" class="md-nav__link">
+    HttpServletResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part" class="md-nav__link">
+    Part
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="servlet">Servlet 规范</h1>
+<h2 id="web">Web 应用的部署文件结构规范</h2>
+<p><strong>WEB-INF</strong>：这个文件夹的名称是固定的，而且一定位于项目的根目录之下。WEB-INF 文件夹对外界是封闭的，浏览器无法直接访问其资源，必须通过 Servlet/Jsp 的请求转发。不想让浏览器直接存取的资源，可以放在这个文件夹下。</p>
+<ul>
+<li>web.xml：Web 应用的部署描述文件。</li>
+<li>lib：放依赖的Jar包</li>
+<li>classes：编译过后的 .class 文件。</li>
+</ul>
+<p><strong>other</strong>：例如 images、css 等静态资源文件</p>
+<blockquote>
+<p>/WEB-INF/lib 中 Jar 包的 /META-INF/resources 中的静态资源也会被访问到，比如 /index.html ，如果根目录下不存在 index.html，那么会使用 Jar 包中的 /META-INF/resources/index.html（如果存在的话）。</p>
+</blockquote>
+<h2 id="servlet-api">Servlet  API</h2>
+<h3 id="servlet-api_1">Servlet API架构图</h3>
+<p><img alt="" src="../Servlet%20API.png" /></p>
+<p>Servlet 应用程序，编译时候必须要有 Servlet API 相关的类，如果用的是 Tomcat 的话，这些类在 Tomcat 文件夹的 lib 子文件夹中 servlet-api.jar 包中。</p>
+<h2 id="servlet_1">Servlet 生命周期</h2>
+<p><strong>init(Servletconfig servletConfig)</strong>：实例化的方法， Servletconfig 对象会被当作参数传入。</p>
+<p><strong>service()</strong>：servlet 业务处理的方法。</p>
+<p><strong>destroy()</strong>：Servlet 实例销毁前的回调。</p>
+<h2 id="servletconfig">ServletConfig</h2>
+<p>Servlet 实例的配置信息，可以在声明 Servlet 的时候对其进行设置。</p>
+<h2 id="servlet_2">声明 Servlet</h2>
+<h3 id="webservlet">@WebServlet</h3>
+<pre><code class="language-java">@WebServlet{
+    name=&quot;hello&quot;,
+    urlPattern={&quot;/hello&quot;},
+    initParams={
+        @WebInitParam(name=&quot;path&quot;, value=&quot;/xxx&quot;),
+        @WebInitParam(name=&quot;name&quot;, value=&quot;ruby&quot;)
+    },
+    loadOnStartup=1
+}
+</code></pre>
+<h3 id="webxml">Web.xml</h3>
+<pre><code class="language-xml">&lt;servlet&gt;
+    &lt;servlet-name&gt;hello&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;com.example.Hello&lt;/servlet-class&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;path&lt;/param-name&gt;
+        &lt;param-value&gt;/xxx&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;name&lt;/param-name&gt;
+        &lt;param-value&gt;ruby&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;hello&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/hello&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre>
+<h3 id="_1">属性</h3>
+<p><strong>name</strong>：servlet 实例的名称</p>
+<p><strong>urlPatterns</strong>：servlet 的路径匹配，可以设置多个。</p>
+<p><strong>initParams</strong>：Servlet 配置，会被映射到 ServletConfig 中。</p>
+<p><strong>loadOnStartup</strong>：</p>
+<ul>
+<li>
+<p>如果值大于0，则表示 Web 容器启动后就初始化相应的 Servlet 实例，初始化的顺序由值大小决定，值越小优先级越高，值相同则由 Web 容器厂商自行决定。</p>
+</li>
+<li>
+<p>如果值小于0，则表示 Web 容器启动后不会立马实例化相应的 Servlet 实例，而是会在首次接收请求时候才对相应的 Servlet 进行实例化、初始化操作。</p>
+</li>
+<li>
+<p>默认值是-1</p>
+</li>
+</ul>
+<h2 id="genericservlet">GenericServlet</h2>
+<p>GenericServlet 是一个抽象类，同时实现了 Servlet 和 ServletConfig 接口。</p>
+<p>GenericServlet 实现了 Servlet#init(ServletConfig) 方法，并且添加了空的无参 init 方法。</p>
+<pre><code class="language-java">public void init(ServletConfig config) throws ServletException {
+    this.config=config;
+    init();
+}
+//我们在实现 Servlet 的时候，如果需要初始化资源，可以重写该方法，而不是带参数的 init 方法。
+public void init(){};
+</code></pre>
+<p>GenericServlet 由于同时实现了 ServletConfig 接口，所以可以直接调用下面的 api</p>
+<ul>
+<li>ServletConfig getServletConfig()</li>
+<li>String getInitParameter(String name)</li>
+<li>Enumeration getInitParameterNames()</li>
+<li>ServletContext getServletContext()</li>
+</ul>
+<h2 id="httpservlet">HttpServlet</h2>
+<p>HttpServlet 继承于 GenericServlet，同时定义 Web Http 相关的处理 API，具体可以查看开头的<a href="#Servlet API架构图">架构图</a>。GenericServlet 在最初定义 Servlet 的时候，并不限于它只能用于 Http，所有并没有把 HTTP 相关服务流程定义在 GenericServlet 中，而是定义在 HttpServlet 的 service() 方法中。与 Servlet 相关的类或者接口都位于 javax.servlet 包中，如：Servlet、GenericServlet、ServletRequest、ServletResponse 等。而与 Http 定义相关的类或者接口都位于  javax.servlet.http 包中，如：HttpServlet、HttpServletRequest、HttpServletResponse 等。</p>
+<h2 id="servletcontext">ServletContext</h2>
+<p>ServletContext 是 Servlet 应用程序运行环境的上下文，其定义了一些 API 可以实现获取请求资源的 URI、存取属性，设置或者获取应用程序的初始参数，甚至动态设置 Servlet 实例。</p>
+<p><strong>getRequestDispatcher(String path)</strong>：获取 RequestDispatcher 对象，path 参数必须以 ”” 开头。</p>
+<blockquote>
+<p>"/" 开头的路径成为环境相对路径，没有 “/” 开头的路径称为请求相对路径。</p>
+</blockquote>
+<p><strong>getResourcePaths(String path)</strong>：列出路径目录下的所有文件路径，路径全部为展开的环境相对路径，同样 path 参数必须是以 “/” 开头。</p>
+<p><strong>getResourceAsStream(String path)</strong>：返回文件的输入流，path 必须以 “/” 开头，表示环境相对路径，或者依赖 jar 包下 META-INF/resources 的相对路径。</p>
+<h2 id="pushbuilder">PushBuilder</h2>
+<p>Servlet 4.0 后提出的新 API，用于支持 Http 2.0 的 Server Push。</p>
+<h2 id="servletrequest">ServletRequest</h2>
+<h4 id="httpservletrequest">HttpServletRequest</h4>
+<p><strong>处理请求参数</strong>：getParameter()、getParameterValues()、getParameterNames()、getParameterMap()</p>
+<p><strong>处理请求头</strong>：getHeader()、getHeaders()、getHeaderNames()</p>
+<p><strong>Post 请求参数的编码处理</strong>：</p>
+<ul>
+<li>对每个 ServletRequest，调用其 setCharacterEncoding(String encoding) 方法。</li>
+<li>在 web.xml 中配置，例如：<code>&lt;request-character-encoding&gt;utf-8&lt;/request-character-encoding&gt;</code>。</li>
+<li>在 Filter 中，统一对 ServletRequest 对象，调用 setCharacterEncoding 方法设置。</li>
+</ul>
+<p><strong>Get 请求参数处理</strong>：</p>
+<ul>
+<li>setCharacterEncoding 方法，只会对请求体起作用，Get 方法参数存在 URI 中，因此不会起作用，因为处理 URI 的是 HTTP 服务器，不是 WEB 服务器，因此需要手动转换。例如：<code>string name=new String(name.getBytes("ISO-8859-1"),"UTF-8")</code>。</li>
+<li>Tomcat 8 之后，处理 URI 的默认编码是 UTF-8，但在 Tomcat 7 之前是 ISO-8859-1，对于 Tomcat 7 的 GET 编码处理可以<a href="../Filter/#requestWrapper">参考 Filter 使用请求封装器统一处理</a></li>
+</ul>
+<p><strong>直接读取请求 Body 输入流</strong>：</p>
+<ul>
+<li>getReader()：可以取得一个 BufferedReader，读取 Body 的数据。</li>
+<li>getInputStream()：可以取得一个 ServletInputStream，这是 InputStream 的子类，可以直接读取 Body 的串流，可以利用它俩处理上传文件的区段。</li>
+</ul>
+<p><strong>multipart/form-data 处理</strong>：getPart()、getParts()，Part 接口的具体使用<a href="#Part">参考这里</a></p>
+<h2 id="servletresponse">ServletResponse</h2>
+<h4 id="httpservletresponse">HttpServletResponse</h4>
+<p><strong>设置响应头</strong>：</p>
+<ul>
+<li>setHeader()、addHeader()</li>
+<li>setXXXHeader()、addXXXHeader()，<code>XXX</code> 表示类型，可以是 Int、String、Date等。</li>
+</ul>
+<p><strong>设置缓冲区</strong>：</p>
+<ul>
+<li>getBufferSize()：获取缓冲区大小。</li>
+<li>setBufferSize()：设置缓存区大小，必须在 HttpServletResponse 的 getWriter() 和 getOutputStream() 方法被调用之前进行调用，否则会抛出 IllegalStateException 异常。</li>
+<li>isCommitted()：在缓冲区未满之前，设置的响应内容并不会真正传至浏览器，可以使用 isCommitted() 方法确认是否已经响应确认。</li>
+<li>reset()：重置响应内容，会连同标头一起清除，如果响应已经确认，调用该方法会抛出 IllegalStateException 异常。</li>
+<li>resetBuffer()：重置响应内容，但是不会清除标头，如果响应已经确认，调用该方法会抛出 IllegalStateException 异常。</li>
+<li>flushBuffer() ：清除缓冲区以设置的响应信息，并且传送至浏览器。</li>
+</ul>
+<blockquote>
+<p>HttpServetResponse 对象若被关闭，则必须清除所有的响应内容，响应对象被关闭的时机由以下几个：</p>
+<ul>
+<li>Servlet 的 service() 方法已经结束。</li>
+<li>响应内容的长度超过了 HttpServletResponse#setContentLength() 所设置的长度。</li>
+<li>调用了 sendRedirect() 或者 sendError() 方法。</li>
+<li>调用了 AsyncContext 的 complete() 方法。</li>
+</ul>
+</blockquote>
+<p><strong>设置输出编码 （优先级高到低）</strong>：</p>
+<ul>
+<li>web.xml 中配置，例如：<code>&lt;response-character-encoding&gt;UTF-8&lt;/response-character-encoding&gt;</code>。</li>
+<li>通过 HttpServletResponse#setCharacterEncoding 和 HttpServletResponse#setContentType() 方法。</li>
+</ul>
+<blockquote>
+<p>setContentType  方法可以设置 MIME 和 编码：setContentType("text/html;charaset=utf-8")</p>
+<p>常见的 MIME 设置有：text/html, application/pdf, application/json 等。可以在 web.xml 中设置文件后缀名以 MIME 的映射，这样可以通过 ServletContext#getMimeType(String filename) 获取对应的 MIME。</p>
+</blockquote>
+<pre><code class="language-xml">&lt;mime-mapping&gt;
+    &lt;extension&gt;pdf&lt;/extension&gt;
+ &lt;mime-type&gt;application/pdf&lt;/mime-type&gt;
+&lt;/mime-mapping&gt;
+</code></pre>
+<ul>
+<li>通过 HttpServletResponse#setLocale 来设置地区信息，locale 包含了语系和编码信息。</li>
+</ul>
+<blockquote>
+<p>可以通过 web.xml 来自定义 locale 的编码信息</p>
+</blockquote>
+<pre><code class="language-xml">&lt;locale-encoding-mapping-list&gt;
+    &lt;locale-encoding-mapping&gt;
+    &lt;locale&gt;zh_CN&lt;/locale&gt;
+     &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+ &lt;/locale-encoding-mapping&gt;
+&lt;/locale-encoding-mapping-list&gt;
+</code></pre>
+<p><strong>输出字符</strong>：getWriter()</p>
+<p><strong>输出二进制流</strong>：getOutputStream()，</p>
+<p><strong>重定向</strong>：sendRedirect()</p>
+<p><strong>发送错误编码</strong>：sendError()，如果在响应确认之后调用会抛出 IllegalStateException 异常。</p>
+<h4 id="part">Part</h4>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../../base/" class="md-footer__link md-footer__link--prev" aria-label="上一页: java ee 基础" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              java ee 基础
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../session_management/" class="md-footer__link md-footer__link--next" aria-label="下一页: 会话管理" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              会话管理
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+    
+  </body>
+</html>

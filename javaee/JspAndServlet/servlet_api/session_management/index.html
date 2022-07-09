@@ -1,0 +1,1238 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.1">
+    
+    
+      
+        <title>会话管理 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c0b802b2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              会话管理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      简介
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../base/" class="md-tabs__link md-tabs__link--active">
+        Java EE
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../front/jsdom/jsdom/" class="md-tabs__link">
+        前端
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../ide/eclipse/" class="md-tabs__link">
+        工具
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java EE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java EE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java EE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          JSP & Servlet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JSP & Servlet" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          JSP & Servlet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/" class="md-nav__link">
+        java ee 基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_2" type="checkbox" id="__nav_2_1_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2">
+          Servlet 规范
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Servlet 规范" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Servlet 规范
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          会话管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        会话管理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    隐藏域
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+     Cookie
+  </a>
+  
+    <nav class="md-nav" aria-label=" Cookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie_1" class="md-nav__link">
+    Cookie 的基本原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookie_2" class="md-nav__link">
+    Cookie 的安全性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    URI 重写
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpsession" class="md-nav__link">
+    HttpSession
+  </a>
+  
+    <nav class="md-nav" aria-label="HttpSession">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpsession-cookie" class="md-nav__link">
+    会话管理：HttpSession + Cookie
+  </a>
+  
+    <nav class="md-nav" aria-label="会话管理：HttpSession + Cookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpsession_1" class="md-nav__link">
+    HttpSession 有效期设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-id" class="md-nav__link">
+    Session ID 的有效期
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsession-uri" class="md-nav__link">
+    会话管理：HttpSession + URI 重写
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../listener/" class="md-nav__link">
+        应用程序事件和监听器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Filter/" class="md-nav__link">
+        过滤器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AsyncServlet/" class="md-nav__link">
+        异步 Servlet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jsp/" class="md-nav__link">
+        JSP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jstl/" class="md-nav__link">
+        JSTL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tag/" class="md-nav__link">
+        自定义标签
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Web 容器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web 容器" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Web 容器
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web_container/tomcat/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web_container_security.md" class="md-nav__link">
+        Web 容器安全管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/spring/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          前端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="前端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          前端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/jsdom/jsdom/" class="md-nav__link">
+        JS DOM 编程艺术
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/css/css/" class="md-nav__link">
+        精通 CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/javascript/javascript/" class="md-nav__link">
+        javascript 高级编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/node/node/" class="md-nav__link">
+        node 与 Express 开发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/bootstrap/bootstrap/" class="md-nav__link">
+        bootstrap 实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/react/react/" class="md-nav__link">
+        React 全家桶：前端开发与实例详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/es/es/" class="md-nav__link">
+        ES6-ES11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/webpack/webpack/" class="md-nav__link">
+        Webpack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../front/typescript/typescript/" class="md-nav__link">
+        typescript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ide/eclipse/" class="md-nav__link">
+        Eclipse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ide/intellij_idea/" class="md-nav__link">
+        Intellij IDEA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ide/vs_code/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    隐藏域
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+     Cookie
+  </a>
+  
+    <nav class="md-nav" aria-label=" Cookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie_1" class="md-nav__link">
+    Cookie 的基本原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookie_2" class="md-nav__link">
+    Cookie 的安全性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    URI 重写
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#httpsession" class="md-nav__link">
+    HttpSession
+  </a>
+  
+    <nav class="md-nav" aria-label="HttpSession">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpsession-cookie" class="md-nav__link">
+    会话管理：HttpSession + Cookie
+  </a>
+  
+    <nav class="md-nav" aria-label="会话管理：HttpSession + Cookie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpsession_1" class="md-nav__link">
+    HttpSession 有效期设置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-id" class="md-nav__link">
+    Session ID 的有效期
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsession-uri" class="md-nav__link">
+    会话管理：HttpSession + URI 重写
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="_1">会话管理</h1>
+<p>会话管理的几个基本方式：隐藏域（Hidden Field）、Cookie 与 URI 重写。</p>
+<h2 id="_2">隐藏域</h2>
+<p>把前面页面的结果通过隐藏域的方式写入新的页面，然后返回给浏览器，浏览器下一次提交的时候，就会把隐藏域中的内容一并提交，从而实现状态的简单管理。比如一个调查问卷，在用户提交第一页答案准备跳转到第二页的时候，后端可以把第一页的答案写入第二页的隐藏域，当用户需要从第二页返回第一页的时候，后端可以从隐藏域中取出第一页的作答情况，从而保留了用户第一页的作答页面。这是一种非常简单的状态管理，并不算 Servlet/JSP 的管理机制。</p>
+<h2 id="cookie"><div id="Cookie"/> Cookie</h2>
+<h3 id="cookie_1">Cookie 的基本原理</h3>
+<p>Cookie 是由<strong>浏览器</strong>负责存储信息的一种方式，Web 应用程序可以通过请求头 <code>set-cookie</code> 来告诉浏览器需要存储的信息的内容和期限。例如：</p>
+<pre><code>set-cookie user=ruby;Expires=SUN,12-Apr-2009 04:38:55 GMT
+</code></pre>
+<p>Web 端设置请求头<code>set-cookie</code> 的方式如下：</p>
+<pre><code class="language-java">Cookie cookie = new Cookie(&quot;user&quot;,&quot;ruby&quot;);
+cookie.setMaxAge(7*24*60*60)//有效期为7天，如不设定有效期限，则默认关闭浏览器后失效
+response.addCookie(cookie);//HttpServletResponse 可以 add 多个 cookie 对象
+</code></pre>
+<p>Web 应用程序可以通过 HttpServletRequest#getCookies() 来获取网页所属域（domain）的所有 Cookie，返回值是一个 Cookie[]。</p>
+<pre><code class="language-java">Cookie[] cookies=request.getCookies();
+if(cookies!=null){
+    for(Cookie cookie : cookies){
+        String name=cookie.getName();
+        String value=cookie.getValue();
+    }
+}
+</code></pre>
+<p>浏览器被预期能为每个网站存储 20 个 Cookie，总共可存储 300 个 Cookie，每个 Cookie 大小不超过 4 KB（每个厂商的浏览器实际情况会有所不同），因此 Cookie 可存储的信息是有限的。</p>
+<h3 id="cookie_2">Cookie 的安全性</h3>
+<p>Cookie 把信息存储在客户端，被窃取的风险较高，虽然可以通过设置适当的过期时间，并且结合摘要算法在一定程度上提高安全性，但是还是无法保证，因此不太适合存储安全性要求较高的信息，比如密码。</p>
+<p>Cookie 可以通过 <code>setSecure()</code> 方法设定为 <code>true</code>，这样就只会在 <code>HTTPS</code> 下传送 Cookie。</p>
+<p>Servlet 3.0 之后可以通过 <code>setHttpOnly()</code> 方法在 <code>set-cookie</code> 头上附加 HttpOnly 属性，在浏览器支持的情况下，这个 Cookie 将不会被 javascript 读取。</p>
+<h2 id="uri">URI 重写</h2>
+<p>所谓 URI 重写，其实就是 GET 请求参数的应用，当 Web 应用程序响应浏览器上一次请求时，将某些相关信息以超链接的方式响应给浏览器，这些超链接中包括请求参数信息。比如分页按钮，可以在响应时，为每个按钮的超链接附加 start 和 count 参数，这样就可以知道每一页查询数据的范围。</p>
+<p>因为 GET 本身可以携带的参数长度有限，因此只适合用来做一些简单的浏览器信息保留，或者辅助会话管理。</p>
+<h2 id="httpsession">HttpSession</h2>
+<p>上面提到的三种方式不同，本质上都是由客户端来进行信息存储，可储信息的量有限，安全性也不高，因此只能用来做一些简单的状态管理，而 HTTP Session 则是由 <strong>Web 应用</strong>负责存储信息的一种方式。</p>
+<p>HttpSession 本质上是一个 JVM 中的对象，类似于 Map，以键值对的方式存储信息：</p>
+<p><strong>HttpSession#setAttribute(String name, Object value)</strong>：设置属性。</p>
+<p><strong>HttpSession#getAttribute(String name)</strong>：取出属性。</p>
+<blockquote>
+<p>HttpSession 并非线程安全，多线程环境中必须注意属性设定时共享存储的问题。</p>
+</blockquote>
+<h3 id="httpsession-cookie">会话管理：HttpSession + Cookie</h3>
+<p>单纯靠 HttpSession 是无法完成会话管理的，一个 Web 应用每天可能会有很多浏览器的请求，HttpSession 无法靠自己识别自身所存储的信息分别对应于那个浏览器，只有浏览器携带了可识别其身份的标识才可以，这个标识是  Session ID。</p>
+<p>HttpSession 默认使用 Cookie 来辅助管理 Session ID 的状态，HttpSession 创建的时候，通过 set-cookie 来设置 Session ID，通常 <code>name</code> 为 <code>JSESSIONID</code>，   <code>value</code> 为一串按一定规则生成的随机字符串：</p>
+<pre><code>set-cookie JESSIONID=1C58EFDA8C4.....
+</code></pre>
+<p>浏览器下一次请求的时候，便会把 Session ID 通过 cookie 头发送给 Web 应用，Web 应用根据 Session ID，便可以取出该浏览器之前存储的属性，从而实现会话状态的管理。</p>
+<p>图</p>
+<h4 id="httpsession_1">HttpSession 有效期设置</h4>
+<ul>
+<li>HttpSession#setMaxInactiveInterval(long second) </li>
+<li>ServletContext#setSessionTimeout(int minute)</li>
+<li>通过 web.xml 配置</li>
+</ul>
+<pre><code class="language-xml">&lt;web-app&gt;
+    &lt;session-config&gt;
+        &lt;!-- 单位为 minute --&gt;
+        &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+    &lt;/session-config&gt;
+&lt;/web-app&gt;
+</code></pre>
+<h4 id="session-id">Session ID 的有效期</h4>
+<div id="sessionCookieConfig"/>
+
+<p>Session ID 默认是由 Cookie 来负责存储的，通过上面 <a href="#Cookie">Cookie 章节</a>的介绍，我们知道如果手动在 set-cookie 的时候设定有效期，那么该 cookie 的有效期默认到浏览器关闭，这样下一次用户再打开浏览器访问之前的网站时候，便无法使用之前存储的 HttpSesssion 信息。</p>
+<p>但是 Session ID 的 set-cookie 是由 HttpSession 创建时候自动完成的，不需要我们手动添加，所以我们无法简单通过 <code>Cookie#setMaxAge(int second)</code> 方法来完成有效期的配置。</p>
+<p>不过 Servlet 给我们提供了 <strong>SessionCookieConfig</strong> 接口，我们可以通过其来设置 Session ID 对应 Cookie 的属性：</p>
+<pre><code class="language-java">// SessionCookieConfig 必须在 ServletContext 初始化之前完成设置。
+// 一个方法是 ServletContextListener#contextInitialized() 中使用这些 API
+SessionCookieConfig config = servletContext.getSessionCookieConfig();
+config.setName(&quot;mysessionId&quot;);//设置 Session ID Cookie name，默认是 JSESSIONID
+config.setMaxAge(7*24*60*60);// 设置过期时间
+config.setSecure(true);// 只通过 Https 传送该 Cookie
+config.setHttpOnly(true);// 不允许 javascript 读取该 cookie
+</code></pre>
+<p><a href="../listener/">ServletContextListener 参考</a></p>
+<p>我们也可以在 Web.xml 中配置：</p>
+<pre><code class="language-xml">&lt;cookie-config&gt;
+    &lt;name&gt;mysessionId&lt;/name&gt;
+    &lt;max-age&gt;604800&lt;/max-age&gt;
+    &lt;secure&gt;true&lt;/secure&gt;
+    &lt;http-only&gt;true&lt;/http-only&gt;
+&lt;/cookie-config&gt;
+</code></pre>
+<blockquote>
+<p>单纯使用 HttpSession + Cookie 同样还是不够安全的，建议一般不采用 JSESSIONID 作为 Session ID 名称，并且使用 Https 进行加密传输，用户登录成功后要变更 Session ID，并且必要时候不要只通过 HttpSession 中的信息来判断用户身份。如果是重要的操作步骤，最好还需要额外的身份确认，比如支付步骤前需要再次输入支付密码。</p>
+</blockquote>
+<h3 id="httpsession-uri">会话管理：HttpSession + URI 重写</h3>
+<p>HttpSession 默认使用 Cookie 来存储 Session ID，但是如果用户关闭了浏览器的 Cookie 的功能，在这种情况下如果还想使用 HttpSession 来进行会话管理，可以考虑使用 URI 重写。</p>
+<p>URI 重写就是在响应的浏览器的页面的时候，对页面中的超链接的 URI 附加 Session ID，例如：</p>
+<pre><code>http://localhost/hello?name=ruby;jessionid=23DF2AC24
+</code></pre>
+<p>可以使用 HttpServletResponse#encodeURL() 方法来协助 URI 重写，例如：</p>
+<pre><code class="language-java">PrintWriter out=response.getWriter();
+out.printf(&quot;&lt;a href='%s'&gt;点击就送&lt;/a&gt;%n&quot;,response.encodeURL(&quot;hello?name=ruby&quot;));
+</code></pre>
+<p>如果 Web 应用能从浏览器的请求中取出 Session ID 对应的 Cookie，则 URI 不变，否则在后面附加 <code>;jsessionid=xxxx</code>。</p>
+<blockquote>
+<p>URI 重写会把 session ID 暴露在 URI 中，因此更加不安全，这和用户可能是为了安全而关闭 cookie 的初衷是相反的。</p>
+</blockquote>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../servlet/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Servlet" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Servlet
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../listener/" class="md-footer__link md-footer__link--next" aria-label="下一页: 应用程序事件和监听器" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              应用程序事件和监听器
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+    
+  </body>
+</html>

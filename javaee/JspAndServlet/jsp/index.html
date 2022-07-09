@@ -1,0 +1,1605 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.1">
+    
+    
+      
+        <title>JSP - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c0b802b2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jsp" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JSP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      简介
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../base/" class="md-tabs__link md-tabs__link--active">
+        Java EE
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../front/jsdom/jsdom/" class="md-tabs__link">
+        前端
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ide/eclipse/" class="md-tabs__link">
+        工具
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java EE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java EE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java EE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          JSP & Servlet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JSP & Servlet" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          JSP & Servlet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        java ee 基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_2" type="checkbox" id="__nav_2_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2">
+          Servlet 规范
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Servlet 规范" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Servlet 规范
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servlet_api/servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servlet_api/session_management/" class="md-nav__link">
+        会话管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servlet_api/listener/" class="md-nav__link">
+        应用程序事件和监听器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servlet_api/Filter/" class="md-nav__link">
+        过滤器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servlet_api/AsyncServlet/" class="md-nav__link">
+        异步 Servlet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          JSP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        JSP
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jsp_1" class="md-nav__link">
+    JSP 的生命周期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jsp_2" class="md-nav__link">
+    编写 JSP
+  </a>
+  
+    <nav class="md-nav" aria-label="编写 JSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    指示元素
+  </a>
+  
+    <nav class="md-nav" aria-label="指示元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page" class="md-nav__link">
+    page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    include
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taglib" class="md-nav__link">
+    taglib
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptlet" class="md-nav__link">
+    声明、Scriptlet和表达式
+  </a>
+  
+    <nav class="md-nav" aria-label="声明、Scriptlet和表达式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    声明类变量或者方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptlet_1" class="md-nav__link">
+    Scriptlet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    注释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    隐式对象
+  </a>
+  
+    <nav class="md-nav" aria-label="隐式对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pagecontext" class="md-nav__link">
+    pageContext
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    错误处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    标准标签
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el" class="md-nav__link">
+    表达式语言（EL）
+  </a>
+  
+    <nav class="md-nav" aria-label="表达式语言（EL）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el_1" class="md-nav__link">
+    使用 EL 表达式取得属性
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 EL 表达式取得属性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    存取属性范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    获取属性方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el_2" class="md-nav__link">
+    EL 隐式对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el_3" class="md-nav__link">
+    EL运算符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jstl/" class="md-nav__link">
+        JSTL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tag/" class="md-nav__link">
+        自定义标签
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Web 容器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web 容器" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Web 容器
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web_container/tomcat/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web_container_security.md" class="md-nav__link">
+        Web 容器安全管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/spring/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          前端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="前端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          前端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/jsdom/jsdom/" class="md-nav__link">
+        JS DOM 编程艺术
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/css/css/" class="md-nav__link">
+        精通 CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/javascript/javascript/" class="md-nav__link">
+        javascript 高级编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/node/node/" class="md-nav__link">
+        node 与 Express 开发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/bootstrap/bootstrap/" class="md-nav__link">
+        bootstrap 实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/react/react/" class="md-nav__link">
+        React 全家桶：前端开发与实例详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/es/es/" class="md-nav__link">
+        ES6-ES11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/webpack/webpack/" class="md-nav__link">
+        Webpack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/typescript/typescript/" class="md-nav__link">
+        typescript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ide/eclipse/" class="md-nav__link">
+        Eclipse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ide/intellij_idea/" class="md-nav__link">
+        Intellij IDEA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ide/vs_code/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jsp_1" class="md-nav__link">
+    JSP 的生命周期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jsp_2" class="md-nav__link">
+    编写 JSP
+  </a>
+  
+    <nav class="md-nav" aria-label="编写 JSP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    指示元素
+  </a>
+  
+    <nav class="md-nav" aria-label="指示元素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page" class="md-nav__link">
+    page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    include
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taglib" class="md-nav__link">
+    taglib
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptlet" class="md-nav__link">
+    声明、Scriptlet和表达式
+  </a>
+  
+    <nav class="md-nav" aria-label="声明、Scriptlet和表达式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    声明类变量或者方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptlet_1" class="md-nav__link">
+    Scriptlet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    注释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    隐式对象
+  </a>
+  
+    <nav class="md-nav" aria-label="隐式对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pagecontext" class="md-nav__link">
+    pageContext
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    错误处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    标准标签
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el" class="md-nav__link">
+    表达式语言（EL）
+  </a>
+  
+    <nav class="md-nav" aria-label="表达式语言（EL）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el_1" class="md-nav__link">
+    使用 EL 表达式取得属性
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 EL 表达式取得属性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    存取属性范围
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    获取属性方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el_2" class="md-nav__link">
+    EL 隐式对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el_3" class="md-nav__link">
+    EL运算符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="jsp">JSP 基础</h1>
+<p>直接在 Servlet 中使用 printWriter 输出 Html 页面是在是太痛苦了，因此有了 JSP。JSP 中可以直接编写 HTML，使用了指示、声明、脚本（Scriptlet）等许多元素来堆砌各种功能，但是 JSP 本质还是会被编译成 Servlet，你所编写的页面内容最后都会在 Servlet 的 service 方法中被 printWriter 输出到浏览器。</p>
+<h2 id="jsp_1">JSP 的生命周期</h2>
+<p>JSP 本质上就是一个 Servlet，因此 Servlet 有的生命周期 JSP 也会有，不过 JSP 存在一个由 JSP 文件到 Servlet 实例的过程，如果 JSP 页面第一次被请求：</p>
+<p><img alt="" src="../JSP_load.png" /></p>
+<p>既然是 Servlet ，那么 JSP 在被加载后，同样会经历 init、service 和 destroy 三个周期，不过如果 Web 容器是 Tomcat ，JSP 在被转译成的 Servlet 是继承自 HttpJspBase 类，该类已经重写了 init、service 和 destroy 方法，同时定义了三个空方法。</p>
+<pre><code class="language-java">public final void init(ServletConfig config){
+    super.init(config);
+    jspInit();// 这是一个空实现
+    _jspInit();
+}
+
+public final void destory(){
+    jspDestroy();// 这是一个空实现
+    _jspDestroy();
+}
+
+public final void service(HttpServletRequest request,HttpServletResponse response){
+    _jspService(request,response);
+}
+</code></pre>
+<p>_jspInit、_jspDestroy 和 _jspService 三个带下划线的方法，表示是由容器自己维护，不应该重写定义这些方法。</p>
+<p>如果想在实例化后和销毁前扩展，可以重写 jspInit 和 jspDestroy 方法。</p>
+<h2 id="jsp_2">编写 JSP</h2>
+<p>编写 JSP 就是在编写 Servlet 的 service 方法，除了用 &lt;%!%&gt; 包裹的内容外，其他页面内容都会被编译成 service 方法的内容，如果是 tomcat 的话，则具体点就是在写 _jspService(request,response) 方法。</p>
+<h3 id="_1">指示元素</h3>
+<p>指示元素是用来说明 JSP 转译成 Servlet 源码的时候，所需要遵循的一些规范。在 JSP 中有三种常用的指示类型：page、include 和 taglib。</p>
+<h4 id="page">page</h4>
+<p>page 有一些可以设置的属性，但是这里只介绍三个最常用的：</p>
+<ul>
+<li>import：引入依赖包，等同于 java 文件的 import。</li>
+<li>contentType：内容 MIME。</li>
+<li>pageEncoding：编码。</li>
+</ul>
+<p>它们可以一起使用，也可以分开写：</p>
+<pre><code class="language-jsp">&lt;%@page import=&quot;java.time.LocalDateTime&quot; contentType=&quot;text/html&quot; pageEncoding=&quot;UTF-8&quot; %&gt;
+&lt;%@page import=&quot;java.util.*&quot;%&gt;
+</code></pre>
+<h4 id="include">include</h4>
+<p>静态包含另外一个页面内容。</p>
+<pre><code class="language-jsp">&lt;%@include file=&quot;/WEB-INF/jspf/footer.jsp&quot;%&gt;
+</code></pre>
+<h4 id="taglib">taglib</h4>
+<p>引入其他标签库。</p>
+<pre><code class="language-jsp">&lt;%@taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+</code></pre>
+<p>标签库的具体使用<a href="../jstl/">请参考</a></p>
+<h3 id="scriptlet">声明、Scriptlet和表达式</h3>
+<h4 id="_2">声明类变量或者方法</h4>
+<p>格式：&lt;%!类成员变量声明或者方法声明%&gt;</p>
+<p>示例：</p>
+<pre><code class="language-jsp">&lt;%!
+    String username=&quot;ruby&quot;; String password=&quot;123456&quot;;
+    public boolean checkUser(String username,String password){
+        ....
+    }
+ %&gt;
+&lt;!-- 重写 jspInit --&gt;
+&lt;%!
+    @Override
+    public void jspInit(){...}
+%&gt;
+</code></pre>
+<p>由于声明的类变量，不是 service 方法内的变量，因此需要注意线程安全问题，因为它们会被多个请求共享。</p>
+<h4 id="scriptlet_1">Scriptlet</h4>
+<p>在 jsp 中 插入 java 代码片段，这些片段都会被编译到 service 方法中，因此它的作用范围就是单次请求。</p>
+<p>格式：&lt;%java 代码%&gt;</p>
+<p>示例：</p>
+<pre><code class="language-java">&lt;%
+    String username=request.getParameter(&quot;username&quot;);
+    String password=request.getparameter(&quot;password&quot;);
+%&gt;
+</code></pre>
+<p>在编写 JSP 页面的时候一般是不建议存在 Scriptlet，因为同时存在前端页面代码和 java 代码会让整个 JSP 文件变得混乱，不易维护，也不利于分工，JSP 尽量只保持有前端页面代码，这样可以让专业的前端人员进行维护。如果想禁用 Scriptlet，可以在 Web.xml 中维护：</p>
+<pre><code class="language-xml">&lt;jsp-config&gt;
+    &lt;jsp-property-group&gt;*.jsp&lt;/jsp-property-group&gt;
+    &lt;scripting-invalid&gt;true&lt;/scripting-invalid&gt;
+&lt;/jsp-config&gt;
+</code></pre>
+<h4 id="_3">表达式</h4>
+<p>表达式很容易理解：</p>
+<pre><code class="language-java">&lt;%= LocalDateTime.now() %&gt;
+</code></pre>
+<p>最终会被编译成：</p>
+<pre><code class="language-java">out.println(LocalDateTime.now());
+</code></pre>
+<h3 id="_4">注释</h3>
+<pre><code class="language-jsp">&lt;%
+    //注释，这种方式，注释会保留在编译后的 Servlet 源代码中
+    /*多汗注释*/
+%&gt;
+&lt;!--网页注释，这种方式可以在浏览器端看见注释 --&gt;
+&lt;%-- jsp 注释 这种方式既不会留着编译后 Servlet 源码中，也不会出现在浏览器中--%&gt;
+</code></pre>
+<p>至于为什么是上面的效果，想必理解了 JSP 即是 Servlet，尤其是 JSP 与 service 方法的联系后，应该很容易理解。</p>
+<h3 id="_5">隐式对象</h3>
+<table>
+<thead>
+<tr>
+<th>隐式对象</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out</td>
+<td>对应 JspWriter，其内部封装了一个 PrintWriter 对象</td>
+</tr>
+<tr>
+<td>request</td>
+<td>对应 HttpServletRequest 对象</td>
+</tr>
+<tr>
+<td>response</td>
+<td>对应 HttpServletResponse 对象</td>
+</tr>
+<tr>
+<td>config</td>
+<td>对应 ServletConfig 对象</td>
+</tr>
+<tr>
+<td>application</td>
+<td>对应 ServletContext 对象</td>
+</tr>
+<tr>
+<td>session</td>
+<td>对应 HttpSesssion 对象</td>
+</tr>
+<tr>
+<td>pageContext</td>
+<td>对应 PageContext 对象，提供了 JSP 页面资源的封装，并可设置页面范围属性</td>
+</tr>
+<tr>
+<td>exception</td>
+<td>对应 Trowable 对象，代码 JSP 页面抛出的异常，只出现在错误页面（isErrorPage 设置为 true 的页面）</td>
+</tr>
+<tr>
+<td>page</td>
+<td>对应 this</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pagecontext">pageContext</h4>
+<p>pageContext 可以设置四种范围属性，pageContext、request、session、application：</p>
+<pre><code class="language-java">getAttribute(String name,int scope);
+setAttribute(String name, Object value, int scope);
+removeAttribute(String name, int scope);
+</code></pre>
+<p>其中 scope 常数有：</p>
+<ul>
+<li>PageContext.PAGE_SCOPE：pageContext</li>
+<li>pageContext.REQUEST_SCOPE：request</li>
+<li>pageContext.SESSION_SCOPE：session</li>
+<li>pageContext.APPLICATION_SCOPE：application</li>
+</ul>
+<pre><code class="language-java">// 该方法可以不制定 scope，会依次从 pageContext、request、session 和 application 中查找属性，找到立马返回。
+pageContext.findAttribute(String name);
+</code></pre>
+<h3 id="_6">错误处理</h3>
+<h3 id="_7">标准标签</h3>
+<h2 id="el">表达式语言（EL）</h2>
+<p>JSP 中可以使用 EL 表达式获取属性、请求参数、请求头与 Cookie 等信息，或者进行一些简单的运算或者判断，这样可以减少 Scriptlet 的使用，例如：</p>
+<pre><code class="language-jsp">&lt;%
+    String a=request.getParameter(&quot;a&quot;);
+    String b=request.getParameter(&quot;b&quot;);
+    out.println(&quot;&lt;body&gt;&quot;)
+    out.println(String.format(&quot;%s+%s=%d&quot;,a,b,Integer.parseInt(a)+Integer.parseInt(b)));
+    out.println(&quot;&lt;/body&gt;&quot;);
+%&gt;
+&lt;!-- 使用 EL 表达式 --&gt;
+&lt;body&gt;
+   ${param.a}+${param.b}=${param.a+param.b}
+&lt;/body&gt;
+</code></pre>
+<h3 id="el_1">使用 EL 表达式取得属性</h3>
+<h4 id="_8">存取属性范围</h4>
+<p>在 EL 中，可以使用 EL 隐式对象指定范围来存储属性，如果不指定范围，则默认以 page、request、session、application 的顺序来寻找指定的属性。</p>
+<h4 id="_9">获取属性方式</h4>
+<ul>
+<li>使用 ”.“ 运算符，左边可以是 JavaBean 或者  Map 对象。</li>
+<li>使用 ”[]“运算符，左边可以是 JavaBean、Map、数组或者 List 对象。</li>
+</ul>
+<p><strong>获取 JavaBean</strong></p>
+<p>如下存入一个属性：</p>
+<pre><code class="language-java">requst.setAttribute(&quot;user&quot;,user);
+</code></pre>
+<p>可以通过以下方式获取 user 的 name 字段：</p>
+<pre><code class="language-java">${user.name}
+${user[&quot;name&quot;]}
+</code></pre>
+<p><strong>获取 Map</strong> </p>
+<p>如下存入一个属性：</p>
+<pre><code class="language-java">&lt;%
+    Map&lt;String,String&gt; map=new HashMap&lt;&gt;();
+    map.put(&quot;username&quot;,&quot;cocoadel&quot;);
+    map.put(&quot;role&quot;,&quot;admin&quot;);
+    request.setAttribute(&quot;login&quot;,map);
+%&gt;
+</code></pre>
+<p>可以通过以下方式获取 map 中的值：</p>
+<pre><code class="language-java">${login.username}
+${lonin[&quot;role&quot;]}
+</code></pre>
+<p>如果是 map 的话，更加建议是用 ”[]“ 运算符，因为如果 key 存在空格符的话，也可以正确取得值。</p>
+<p><strong>获取数组或者 List 元素</strong></p>
+<p>如下存入一个属性</p>
+<pre><code class="language-java">&lt;%
+    List&lt;String&gt; names=new ArrayList&lt;&gt;();
+    names.add(&quot;cocoadel&quot;);
+    names.add(&quot;ruby&quot;);
+    request.setAttribute(&quot;names&quot;,names);
+    request.setAttribute(&quot;index&quot;,1);
+%&gt;
+</code></pre>
+<p>可以通过以下方式获取 List 元素：</p>
+<pre><code class="language-java">${names[0]}// cocoadel
+${names[1]}// ruby
+${names[param.index]}// ruby
+</code></pre>
+<p>"[x]" x如果不含有 ”“，则表示这是一个表达式，会把表达式转换成值，再使用值作为索引，如果含有”“，则表示这是一个 key。</p>
+<h4 id="el_2">EL 隐式对象</h4>
+<h4 id="el_3">EL运算符</h4>
+<div id="custom_el_function">
+### 自定义 EL 函数
+
+### EL 3.0
+
+**设置范围属性**
+
+
+<pre><code class="language-java">${a=&quot;10&quot;}
+//等同
+&lt;% pageContext.setAttribute(&quot;a&quot;,&quot;10&quot;);%&gt;
+</code></pre>
+
+
+**多语句执行，使用 “;” 分隔，最后一个表达式的值，是 EL 表达式的值。**
+
+
+<pre><code class="language-java">${a=&quot;10&quot;;b=&quot;20&quot;;0}//该代码三个语句会分别执行，最后表达式的值是 0
+</code></pre>
+
+
+**创建对象**
+
+
+<pre><code class="language-java">${scores=[100,95,88,75]}//创建 List
+${names={&quot;ruby&quot;,&quot;wiess&quot;,&quot;yang&quot;,&quot;blcak&quot;}} // 创建 Set
+${passwords={&quot;Admin&quot;:&quot;123456&quot;,&quot;Manager&quot;:&quot;3234423&quot;}} // 创建 Map
+${String(&quot;cocoadel&quot;)} //调用构造方法创建对象
+</code></pre>
+
+
+**调用静态类和静态方法**
+
+java.lang 中的类可以直接调用其静态方法或者静态成员：
+
+
+<pre><code class="language-java">${Integer.parseInt(&quot;123&quot;)}
+${Math.max(a,b)}
+</code></pre>
+
+
+其他类可以通过 `pageContext.getELContext().getImportHandler().importClass(className)` 来追加：
+
+
+<pre><code class="language-java">${pageContext.getElContext().getImportHandler().importClass(&quot;java.time.LocalTime&quot;)}
+${LocalTime.now()}
+</code></pre>
+
+
+**支持 Lambda 表达式**
+
+
+<pre><code class="language-java">${plus=(x,y)-&gt; x+y}
+${names.stream().filter(name-&gt;name.length()&gt;=3).toList()}
+</code></pre>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../servlet_api/AsyncServlet/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 异步 Servlet" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              异步 Servlet
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../jstl/" class="md-footer__link md-footer__link--next" aria-label="下一页: JSTL" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              JSTL
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+    
+  </body>
+</html>
