@@ -1,0 +1,2655 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.1">
+    
+    
+      
+        <title>二分 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c0b802b2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              二分
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      简介
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../javaee/JspAndServlet/base/" class="md-tabs__link">
+        Java EE
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../front/jsdom/jsdom/" class="md-tabs__link">
+        前端
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ide/eclipse/" class="md-tabs__link">
+        工具
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../dfs/" class="md-tabs__link md-tabs__link--active">
+        算法
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Java EE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java EE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Java EE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          JSP & Servlet
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JSP & Servlet" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          JSP & Servlet
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/base/" class="md-nav__link">
+        java ee 基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_2" type="checkbox" id="__nav_2_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2">
+          Servlet 规范
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Servlet 规范" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Servlet 规范
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/servlet_api/servlet/" class="md-nav__link">
+        Servlet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/servlet_api/session_management/" class="md-nav__link">
+        会话管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/servlet_api/listener/" class="md-nav__link">
+        应用程序事件和监听器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/servlet_api/Filter/" class="md-nav__link">
+        过滤器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/servlet_api/AsyncServlet/" class="md-nav__link">
+        异步 Servlet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/jsp/" class="md-nav__link">
+        JSP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/jstl/" class="md-nav__link">
+        JSTL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/JspAndServlet/tag/" class="md-nav__link">
+        自定义标签
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Web 容器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Web 容器" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Web 容器
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/web_container/tomcat/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/web_container_security.md" class="md-nav__link">
+        Web 容器安全管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javaee/spring/spring/" class="md-nav__link">
+        Spring
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          前端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="前端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          前端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/jsdom/jsdom/" class="md-nav__link">
+        JS DOM 编程艺术
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/css/css/" class="md-nav__link">
+        精通 CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/javascript/javascript/" class="md-nav__link">
+        javascript 高级编程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/node/node/" class="md-nav__link">
+        node 与 Express 开发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/bootstrap/bootstrap/" class="md-nav__link">
+        bootstrap 实践
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/react/react/" class="md-nav__link">
+        React 全家桶：前端开发与实例详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/es/es/" class="md-nav__link">
+        ES6-ES11
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/webpack/webpack/" class="md-nav__link">
+        Webpack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../front/typescript/typescript/" class="md-nav__link">
+        typescript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ide/eclipse/" class="md-nav__link">
+        Eclipse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ide/intellij_idea/" class="md-nav__link">
+        Intellij IDEA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ide/vs_code/" class="md-nav__link">
+        VS Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          算法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="算法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          算法基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="算法基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          算法基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dfs/" class="md-nav__link">
+        深度优先搜索
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bfs/" class="md-nav__link">
+        广度优先搜索
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../greedy/" class="md-nav__link">
+        贪心
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          二分
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        二分
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查找值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    假定判断
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    最大化最小值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最大化平均值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    查找第 K 个值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k_1" class="md-nav__link">
+    最小化第 K 值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    其他
+  </a>
+  
+    <nav class="md-nav" aria-label="其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    折半舍去
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefix_sum/" class="md-nav__link">
+        前缀和 & 差分
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other/" class="md-nav__link">
+        其他
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../antic/" class="md-nav__link">
+        小技巧
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          数据结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/stack/" class="md-nav__link">
+        栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/queue/" class="md-nav__link">
+        队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2_3" type="checkbox" id="__nav_5_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_3">
+          树
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="树" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          树
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/tree/base/" class="md-nav__link">
+        树的基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/tree/binary_search/" class="md-nav__link">
+        二叉搜索树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/tree/lca/" class="md-nav__link">
+        树的公共祖先
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/union_find/" class="md-nav__link">
+        并查集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/segment_tree/" class="md-nav__link">
+        线段树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/binary_indexed_tree/" class="md-nav__link">
+        树状数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_structure/sqrt_decompositon/" class="md-nav__link">
+        平方分割
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          字符串
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="字符串" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          字符串
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_1" type="checkbox" id="__nav_5_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3_1">
+          字符串匹配
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="字符串匹配" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          字符串匹配
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/match/hash/" class="md-nav__link">
+        哈希匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/match/kmp/" class="md-nav__link">
+        KMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/match/trie/" class="md-nav__link">
+        字典树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/match/sufix_arr/" class="md-nav__link">
+        后缀数组
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/sub_seq/" class="md-nav__link">
+        子序列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/plalindrome/" class="md-nav__link">
+        回文串
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/brackets/" class="md-nav__link">
+        括号问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/skill/" class="md-nav__link">
+        字符串处理技巧
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          动态规划
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="动态规划" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          动态规划
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dp/knapsack/" class="md-nav__link">
+        背包问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dp/DGA/" class="md-nav__link">
+        DGA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dp/LCS/" class="md-nav__link">
+        最长公共子序列问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dp/LIS/" class="md-nav__link">
+        最长上升子序列问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dp/count_dp/" class="md-nav__link">
+        计数 DP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dp/state_compression/" class="md-nav__link">
+        状态压缩 DP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dp/tree_dp/" class="md-nav__link">
+        树上 DP
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          图
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="图" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          图
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/base/" class="md-nav__link">
+        图论基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5_2" type="checkbox" id="__nav_5_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5_2">
+          最短路径
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="最短路径" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          最短路径
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/short_path/bellman-ford/" class="md-nav__link">
+        Bellman-Ford 算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/short_path/dijkstra/" class="md-nav__link">
+        Dijkstra 算法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/short_path/floyd-Warshall/" class="md-nav__link">
+        Floyd-Warshall 算法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/mst/" class="md-nav__link">
+        最小生成树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/topsort/" class="md-nav__link">
+        拓扑排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph/color/" class="md-nav__link">
+        图的着色
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_6">
+          数学
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数学" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          数学
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/bit/bit/" class="md-nav__link">
+        位运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6_2" type="checkbox" id="__nav_5_6_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_6_2">
+          数论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数论" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          数论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/number_theory/gcd/" class="md-nav__link">
+        最大公约数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/number_theory/prime/" class="md-nav__link">
+        素数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/number_theory/mod/" class="md-nav__link">
+        模运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/number_theory/fast_pow/" class="md-nav__link">
+        快速幂
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_7">
+          技巧
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="技巧" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          技巧
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/two_pointers/" class="md-nav__link">
+        双指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/monotonic_queue/" class="md-nav__link">
+        单调队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/monotonic_stack/" class="md-nav__link">
+        单调栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/half_enum/" class="md-nav__link">
+        折半枚举
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/slidwindow/" class="md-nav__link">
+        滑动窗口
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/flip/" class="md-nav__link">
+        反转
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skill/discretization/" class="md-nav__link">
+        离散化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查找值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    假定判断
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    最大化最小值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最大化平均值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    查找第 K 个值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k_1" class="md-nav__link">
+    最小化第 K 值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    其他
+  </a>
+  
+    <nav class="md-nav" aria-label="其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    折半舍去
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="_1">二分</h1>
+<h2 id="_2">查找值</h2>
+<p>这是二分搜索最简单的用法，在<strong>有序</strong>的数组中查找某个值是否存在，或者最接近某个值的值。</p>
+<details class="note">
+<summary>C++ STL 实现了二分查找值的算法，可以直接使用</summary>
+<div class="highlight"><pre><span></span><code><span class="c1">//返回第一个大于或者等于 x 的下标，如果不存在则返回 n</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="c1">//返回第一个大于或者等于 x 的迭代器，如果不存在则返回尾迭代器。</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="o">=</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//返回第一个大于 x 的下标，如果不存在则返回 n</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="c1">//返回第一个大于或者等于 x 的迭代器，如果不存在则返回尾迭代器。</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//注意： 如果是 set 和 map 这种关联式容器，使用上面的两个方法的时间复杂度是 O(n)，需要使用容器自带的方法，时间复杂度为 O(logn)。</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//快速找出有序数组 a 中 x 的数量。</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//有序数组 a 中 小于 x 的数量</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
+
+<span class="c1">//有序数组 a 中 小于等于 x 的数量</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h2 id="_3">假定判断</h2>
+<p>假定判断就是先假定一个解并且判断是否可行，在二分中使用也是非常的频繁，例如求解<strong>最大化</strong>或者<strong>最小化</strong>问题。</p>
+<details class="note" open="open">
+<summary><a href="http://poj.org/problem?id=1064">POJ 1064 Cable master</a></summary>
+</details>
+<details>
+<summary>参考代码</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">=</span><span class="mi">10010</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">L</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">calc</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">len</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="o">+=</span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c1">//标签：二分 求最大值 实数二分</span>
+<span class="c1">// #define LOCAL</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#ifdef LOCAL</span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;output.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#endif</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">k</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lf&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="mi">100010</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//100 次循环精度可以达到 10^-30，基本上是没有问题的</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">       </span><span class="kt">double</span><span class="w"> </span><span class="n">md</span><span class="o">=</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">if</span><span class="p">(</span><span class="n">calc</span><span class="p">(</span><span class="n">md</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">md</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="n">md</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">floor</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h2 id="_4">最大化最小值</h2>
+<details class="note" open="open">
+<summary><a href="http://poj.org/problem?id=2456">POJ 2456  Aggressive cows</a></summary>
+</details>
+<details>
+<summary>参考代码</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="c1"> </span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">=</span><span class="mi">100010</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">cnt</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">&amp;&amp;</span><span class="n">cnt</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">k</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="n">cnt</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="o">==</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="c1">//标签：二分 最大值最小</span>
+<span class="c1">// #define LOCAL</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#ifdef LOCAL</span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;output.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#endif</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">+</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="mi">-1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">md</span><span class="o">=</span><span class="n">l</span><span class="o">+</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">l</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">md</span><span class="p">,</span><span class="n">c</span><span class="p">))</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">md</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="n">md</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<p><strong>最大化最小值</strong>或者<strong>最小化最大值</strong> 经常也会带有一定的贪心算法在里面，通常借助排序或者优先队列来建立判断条件。</p>
+<h2 id="_5">最大化平均值</h2>
+<details class="node" open="open">
+<summary>最大化平均值</summary>
+<p>有 n 个物品的重量和价值分别是 wi 和 vi。从中选出 k 个物品使得单位重量的价值最大。</p>
+<p><strong>限制条件：</strong> 1&lt;=k&lt;=n&lt;1000；1&lt;=wi,vi&lt;=1000000</p>
+<p><strong>样例</strong></p>
+<p>输入：n=3；k=2；(w,v)={(2,2),(5,3),(2,1)}</p>
+<p>输出：0.75 (选择 0 号和 2 号物品，(2+1)/(2+2)=0.75)</p>
+</details>
+<details class="node">
+<summary>解题思路</summary>
+<p>一般最先想到的方法是按照单位价值进行排序，从大到小贪心地进行选择，但是这种方法对于上面的例子的结果是 0.714，所以这种方式不可行。</p>
+<p>我们可以使用二分解决这个问题，假定判断条件：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">C(x)=可以通过选择使得单位价值不小于 x</div>
+<script type="math/tex; mode=display">C(x)=可以通过选择使得单位价值不小于 x</script>
+</div>
+<p>那么原问题就变成了求满足 C(x) 的最大的 x。假设我们选择的集合是 s，因此它们的单位价值是：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sum_{k \in s} vi \div \sum_{k \in s} wi \geq x
+</div>
+<script type="math/tex; mode=display">
+\sum_{k \in s} vi \div \sum_{k \in s} wi \geq x
+</script>
+</div>
+<p>把上面不等式进行变形：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sum_{k \in s} (vi-x \times wi) \geq 0
+</div>
+<script type="math/tex; mode=display">
+\sum_{k \in s} (vi-x \times wi) \geq 0
+</script>
+</div>
+<p>因此可以对 <span class="arithmatex"><span class="MathJax_Preview">(vi-x \times wi)</span><script type="math/tex">(vi-x \times wi)</script></span> 的值进行排序，然后贪心地进行选取：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">C(x)=(vi-x \times wi)从大到小前 k 个和不小于0</div>
+<script type="math/tex; mode=display">C(x)=(vi-x \times wi)从大到小前 k 个和不小于0</script>
+</div>
+</details>
+<details class="note">
+<summary>参考代码</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10010</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">MAX_N</span><span class="p">],</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">MAX_N</span><span class="p">];</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">MAX_N</span><span class="p">],</span><span class="w"> </span><span class="n">INF</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">//判断是否满足条件</span>
+<span class="kt">bool</span><span class="w"> </span><span class="nf">C</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">//计算最大的 K 个 yi 的和</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INF</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">md</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">(</span><span class="n">md</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">md</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">md</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h2 id="k">查找第 K 个值</h2>
+<p>利用二分来查找第 k 个值，一般基于这么一个判断：设定一个值 x，如果 x <strong>小于</strong>第 k 个值，那么<strong>小于等于</strong> x 的个数一定<strong>小于</strong> k；反过来如果 x <strong>大于等于</strong>第 k 个值，那么<strong>小于等于</strong> x 的个数一定<strong>不小于</strong> k，这其实就是一个假定判断，因此这种方法的核心就是计数。</p>
+<p>需要使用二分来查找第 k 个值，一般是出现在无法直接读取准确位置的元素的情况下，比如二维矩阵，或者动态查询，或者数列等。</p>
+<blockquote>
+<p>ps ：在有序的序列中，upper_bound 和 lower_bound 能非常方便的计算小于某个值的个数。</p>
+</blockquote>
+<details class="note" open="open">
+<summary><a href="https://leetcode.cn/problems/kth-smallest-number-in-multiplication-table/">leetcode 668. 乘法表中第k小的数</a></summary>
+<p>几乎每一个人都用 乘法表。但是你能在乘法表中快速找到第 k 小的数字吗？乘法表是大小为 m x n 的一个整数矩阵，其中 mat[i][j] == i * j（下标从 1 开始）。给你三个整数 m、n 和 k，请你在大小为 m x n 的乘法表中，找出并返回第 k 小的数字。</p>
+</details>
+<details class="note">
+<summary>参考思路</summary>
+<p>就是使用上面的判断方法来进行二分，关键是计数,这里很简单，因为<span class="arithmatex"><span class="MathJax_Preview">mat[i][j]=i \times j</span><script type="math/tex">mat[i][j]=i \times j</script></span>，因此每一行小于等于 x 的个数就是 <span class="arithmatex"><span class="MathJax_Preview">min(n,x/i)</span><script type="math/tex">min(n,x/i)</script></span>, <span class="arithmatex"><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> 的矩阵可以在 O(m) 的时间复杂度内进行每次的计数。</p>
+</details>
+<details class="node">
+<summary>参考代码</summary>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">findKthNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">m</span><span class="o">&gt;</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="mf">9e8</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="o">=</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">l</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">calc</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">mid</span><span class="p">)</span><span class="o">&lt;</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="n">mid</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">calc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="n">res</span><span class="o">+=</span><span class="n">n</span><span class="o">*</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">mid</span><span class="o">?</span><span class="n">n</span><span class="o">:</span><span class="n">mid</span><span class="o">/</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h2 id="k_1">最小化第 K 值</h2>
+<details class="note" open="open">
+<summary>POJ 3662 Telephone Lines</summary>
+<p>FJ 想在电话公司和自己的农场之间建立电话线路，它们之间有 n 根电线杆，1 和 n 号电线杆分别在电话公司和农场内，这些电线杆之间有的可以相互连接(a,b,l 表示a 和 b 连接的费用是 l)，有的不行。电话公司愿意支付 k 根最贵的电话线，剩下的电话线中最贵的一根的费用就是 FJ 需要支付的最终费用。求 FJ 可以建立电话线路需要的最小费用。</p>
+</details>
+<details class="note">
+<summary>解题思路</summary>
+<p>这是一张无向图，如果 1 和 n 之间非连通，则返回 -1，如果连通需要的最少边数 &lt;= k 则费用是0，如果边数大于 k ，则第 k+1 贵的电线就是 FJ 要支付的费用，因此问题就是最小化第 k+1 <strong>大</strong>的值。</p>
+<p>连通性和连通的最少边数可以使用 BFS 求出，这个非常简单，问题是如何才能最小化第 K+1 大的值。不妨先想办法找出每条路径第 k+1 大的值，然后取它们中的最小值。</p>
+<p>那我们如何找出一条路径的第 k+1 大的值呢？可以把该路径的边按费用排序，直接读取第 k+1 大的值。但是图的搜索如果把每条路径都保存下来那内存需要非常大，不能直接读取。</p>
+<p>那上面使用二分查找第 K 大值的方式可以么？我们假定当前判定的值是 x，那么<strong>大于</strong> x 的边的数量可以在搜索中记录下来么？貌似没问题，我们在 BFS 过程对每个点记录到达它的路径<strong>大于</strong> x 的边数的<strong>最小值</strong>就可以。为什么是最小值，因为只要有一条路径<strong>大于等于</strong> x 的边数<strong>小于</strong> k+1，那么该路径的第 k+1 条边一定<strong>小于</strong> x，因此如果最小值都不满足，那其他也不满足。两点之间路径最小值想到什么了？dijkstra！我们把大于等于 x 的边的边权记为 1，否则为0，求 1 - n 的最小权和，然后和 x 进行判断。</p>
+</details>
+<details class="note">
+<summary>参考代码</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;queue&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;climits&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pi</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">P</span><span class="o">=</span><span class="mi">20100</span><span class="p">;</span><span class="w"> </span><span class="c1">// 要记得向前星无向边的容量是边数的两倍</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">=</span><span class="mi">1010</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">d</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="n">e</span><span class="p">[</span><span class="n">P</span><span class="p">];</span><span class="w"></span>
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pi</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pi</span><span class="o">&gt;</span><span class="p">,</span><span class="n">greater</span><span class="o">&lt;</span><span class="n">pi</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">pq</span><span class="p">;</span><span class="w"> </span><span class="c1">//小根堆</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Edge</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="n">next</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="n">edges</span><span class="p">[</span><span class="n">P</span><span class="p">];</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="n">head</span><span class="p">[</span><span class="n">P</span><span class="p">];</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">edges</span><span class="p">[</span><span class="o">++</span><span class="n">id</span><span class="p">].</span><span class="n">to</span><span class="o">=</span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">edges</span><span class="p">[</span><span class="n">id</span><span class="p">].</span><span class="n">next</span><span class="o">=</span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">edges</span><span class="p">[</span><span class="n">id</span><span class="p">].</span><span class="n">w</span><span class="o">=</span><span class="n">w</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">=</span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">djk</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="mi">-1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">d</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">pq</span><span class="p">.</span><span class="n">size</span><span class="p">())</span><span class="w"> </span><span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="c1">//这里一定要注意清空队列</span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">pq</span><span class="p">.</span><span class="n">size</span><span class="p">()){</span><span class="w"></span>
+<span class="w">        </span><span class="n">pi</span><span class="w"> </span><span class="n">t</span><span class="o">=</span><span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span><span class="w"> </span><span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="o">=</span><span class="n">t</span><span class="p">.</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="o">=</span><span class="n">t</span><span class="p">.</span><span class="n">second</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">u</span><span class="o">==</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">!=</span><span class="mi">-1</span><span class="o">&amp;&amp;</span><span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">&lt;</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">];</span><span class="n">i</span><span class="p">;</span><span class="n">i</span><span class="o">=</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">next</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">==</span><span class="mi">-1</span><span class="o">||</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">&gt;</span><span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">w</span><span class="o">&gt;=</span><span class="n">x</span><span class="p">))){</span><span class="w"></span>
+<span class="w">                </span><span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">w</span><span class="o">&gt;=</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">],</span><span class="n">v</span><span class="p">));</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">//#define LOCAL</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#ifdef LOCAL</span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;output.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#endif</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d %d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">p</span><span class="p">,</span><span class="o">&amp;</span><span class="n">k</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">p</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">       </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d %d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">u</span><span class="p">,</span><span class="o">&amp;</span><span class="n">v</span><span class="p">,</span><span class="o">&amp;</span><span class="n">w</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span><span class="n">add</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">w</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">w</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">mik</span><span class="o">=</span><span class="n">djk</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">mik</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">mik</span><span class="o">&lt;=</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">e</span><span class="o">+</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="n">p</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">md</span><span class="o">=</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="o">=</span><span class="n">djk</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">md</span><span class="p">]);</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="o">&lt;</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="n">md</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">md</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="n">r</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h2 id="_6">其他</h2>
+<h3 id="_7">折半舍去</h3>
+<p>我们在判断一条题目是否可以使用二分的时候，最常用的一个方法就是判断其是否具有单调性，但其实只要能保证每次迭代的区间一定存在解，那么通过区间收敛就一定能获取解，单调性能比较容易看出并且实现这一点，但并不代表只有单调性才能使用二分。</p>
+<details class="note" open="open">
+<summary><a href="https://leetcode.cn/problems/peak-index-in-a-mountain-array/">leetcode 852. 山脉数组的峰顶索引</a></summary>
+<p>给你由整数组成的山脉数组 arr ，返回任何满足 arr[0] &lt; arr[1] &lt; ... arr[i - 1] &lt; arr[i] &gt; arr[i + 1] &gt; ... &gt; arr[arr.length - 1] 的下标 i。0&lt;i&lt;arr.length-1;</p>
+</details>
+<details class="node">
+<summary>思路分析</summary>
+<p>如果区间 [l,r] 存在顶点，那么对于区间的 x， 如果有 arr[x+1]&gt;arr[x]，那么顶点一定在 [x+1,r]，反过来如果 arr[x]&gt;arr[x+1]，那么顶点一定在 [l,x]。</p>
+</details>
+<details class="node">
+<summary>参考代码</summary>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">peakIndexInMountainArray</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="n">arr</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="n">n</span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">md</span><span class="o">=</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">md</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">arr</span><span class="p">[</span><span class="n">md</span><span class="p">])</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">md</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="n">md</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<details class="node" open="open">
+<summary><a href="https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=825&amp;page=show_problem&amp;problem=4482">Uva 1607 与非门电路</a></summary>
+</details>
+<details class="node">
+<summary>参考思路</summary>
+<p>因为 n 个输入接收同一个 x，因此整个电路的功能无非就是 4 种：常数 0；常数 1；x，非 x。</p>
+<p>我们可以先把所有的 x 全部设置为 0，再设置为 1，如果两者输出一致，那说明结果是常数，那么可以把所有的输入全部设置成 0，或者全部设置成 1。</p>
+<p>如果输出不同，那么我们可以只需要讨论其中一种，因为它们逻辑是一样的。我们设 x=0时候，输出 0；x=1 时候，输出 1。现在我们把第一个输入改成 1，其他还是 0，如果输出是 1，那么就得到一个解 x00...00；如果输出还是 0 ，再把第二个也改成 1，如果输出 1，则又找到一个解 1x00...0，如果还是 0，再继续尝试11100...00，如此等等。由于全为 1 的时候，则一定会输出 1，这表示一定存在解。那为什么不直接使用 111...1x 呢？ 因为虽然全为 1 时输出一定为 1，但是 11...10 输出不一定为0，也有可能为 1，那么 111...1x 输出就变成了常数。</p>
+<p>我们设 <span class="arithmatex"><span class="MathJax_Preview">f(i)=输入为 i 个 1 时的输出</span><script type="math/tex">f(i)=输入为 i 个 1 时的输出</script></span>。 那么如果存在 <span class="arithmatex"><span class="MathJax_Preview">f(i)=0</span><script type="math/tex">f(i)=0</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">f(i+1)=1</span><script type="math/tex">f(i+1)=1</script></span> ，则 i 和 i+1 就是我们要找的临界点，题目中可能会存在多个这样的临界点，但是我们只需要找到其中一个即可。我们设区间<span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>满足<span class="arithmatex"><span class="MathJax_Preview">f(l)=0</span><script type="math/tex">f(l)=0</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">f(r)=1</span><script type="math/tex">f(r)=1</script></span>，那么如果区间中的 i 有 <span class="arithmatex"><span class="MathJax_Preview">f(i)=0</span><script type="math/tex">f(i)=0</script></span>，那么区间可以缩小为<span class="arithmatex"><span class="MathJax_Preview">[i,r]</span><script type="math/tex">[i,r]</script></span>，反之如果<span class="arithmatex"><span class="MathJax_Preview">f(i)=1</span><script type="math/tex">f(i)=1</script></span>，那么区间可以缩小为<span class="arithmatex"><span class="MathJax_Preview">[l,i]</span><script type="math/tex">[l,i]</script></span>，最终收敛为 <span class="arithmatex"><span class="MathJax_Preview">(i,i+1]</span><script type="math/tex">(i,i+1]</script></span>。</p>
+</details>
+<details class="note">
+<summary>参考代码</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">=</span><span class="mi">100010</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="mi">200010</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">gate</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="n">gates</span><span class="p">[</span><span class="n">M</span><span class="p">];</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">calc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">cnt</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="n">gates</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="o">=</span><span class="n">gates</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ia</span><span class="o">=</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">?</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">&lt;=</span><span class="n">cnt</span><span class="p">)</span><span class="o">:</span><span class="n">gates</span><span class="p">[</span><span class="n">a</span><span class="p">].</span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ib</span><span class="o">=</span><span class="n">b</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">?</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">&lt;=</span><span class="n">cnt</span><span class="p">)</span><span class="o">:</span><span class="n">gates</span><span class="p">[</span><span class="n">b</span><span class="p">].</span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">gates</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">o</span><span class="o">=~</span><span class="p">(</span><span class="n">ia</span><span class="o">&amp;</span><span class="n">ib</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">gates</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">o</span><span class="o">&amp;=</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">gates</span><span class="p">[</span><span class="n">m</span><span class="p">].</span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// #define LOCAL</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#ifdef LOCAL</span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="n">stdin</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;output.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#endif</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--&gt;</span><span class="mi">0</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">gates</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">a</span><span class="p">,</span><span class="o">&amp;</span><span class="n">gates</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="o">=</span><span class="n">calc</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="o">=</span><span class="n">calc</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">u</span><span class="o">==</span><span class="n">v</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="sc">&#39;1&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">){</span><span class="w"></span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">md</span><span class="o">=</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">calc</span><span class="p">(</span><span class="n">md</span><span class="p">)</span><span class="o">==</span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="n">md</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="n">md</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span>
+<span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="w">                </span><span class="n">ch</span><span class="o">=</span><span class="n">i</span><span class="o">&lt;</span><span class="n">r</span><span class="o">?</span><span class="sc">&#39;1&#39;</span><span class="o">:</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">r</span><span class="o">?</span><span class="sc">&#39;x&#39;</span><span class="o">:</span><span class="sc">&#39;0&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span><span class="n">ch</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h2 id="_8">参考资料</h2>
+<p>《算法竞赛入门经典-第 2 版》</p>
+<p>《挑战程序设计竞赛》</p>
+<p>《leetcode 网站》</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../greedy/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 贪心" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              贪心
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../prefix_sum/" class="md-footer__link md-footer__link--next" aria-label="下一页: 前缀和 &amp; 差分" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              前缀和 & 差分
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+        <script src="../../../_static/js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
